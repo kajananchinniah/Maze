@@ -3,6 +3,7 @@
 Currently, this just contains structs and functions that generate mazes on console. main.c contains sample usage for initializing the maze, generating and then printing it out. Note: an odd number of columns and rows should be used for proper generation & there should be more than 3 cols and rows.
 
 Sample output (7x7 maze) starting at (1,1), where X represents a wall and O represents an empty space:
+
 XXXXXXX <br />
 XOOOXOX <br />
 XOXOXOX <br />
