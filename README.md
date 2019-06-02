@@ -3,13 +3,13 @@
 Currently, this just contains structs and functions that generate mazes on console. main.c contains sample usage for initializing the maze, generating and then printing it out. Note: an odd number of columns and rows should be used for proper generation & there should be more than 3 cols and rows.
 
 Sample output (7x7 maze) starting at (1,1):
-XXXXXXX
-X***X*X
-X*X*X*X
-X*X***X
-XXXXX*X
-X*****X
-XXXXXXX
+XXXXXXX <br />
+X***X*X <br />
+X*X*X*X <br />
+X*X***X <br />
+XXXXX*X <br />
+X*****X <br />
+XXXXXXX <br />
 
 I'm temporarily puttingthis project on hold.
 
