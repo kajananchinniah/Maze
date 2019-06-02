@@ -1,6 +1,6 @@
 # Maze
 
-Currently, this just contains structs and functions that generate mazes on console. main.c contains sample usage for initializing the maze, generating and then printing it out. Note: an odd number of columns and rows should be used for proper generation.
+Currently, this just contains structs and functions that generate mazes on console. main.c contains sample usage for initializing the maze, generating and then printing it out. Note: an odd number of columns and rows should be used for proper generation & there should be more than 3 cols and rows.
 
 I'm temporarily putting this project on hold.
 
