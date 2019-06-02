@@ -121,6 +121,18 @@ int isStackEmpty(stack *head)
 //Initializes a n_rows * n_cols maze. Each cell will be surrounded by walls around it
 int init_maze(Maze* maze, int n_rows, int n_cols)
 {
+   if (n_rows % 2 == 0 || n_cols % 2 == 0)
+   {
+      printf("Please use an odd number of rows and columns\n");
+      return -1;
+   }
+
+   if (n_rows < 3 || n_cols < 3)
+   {
+      printf("Please use greater than 3 rows and cols\n");
+      return -1;
+   }
+
    if (maze == NULL)
    {
       maze = malloc(sizeof(Maze));
