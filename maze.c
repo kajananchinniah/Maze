@@ -27,6 +27,7 @@ int setPosY(position *p, int y)
    return 0;
 }
 
+//The getDirectionVariableMovement functions move the variable to the cell in it's respective direction
 int getPositiveXMovement(int x) 
 {
    int forward_pos = x + 2;
@@ -111,12 +112,13 @@ int isStackEmpty(stack *head)
 {
    if (head == NULL)
    {
-      return 1;
+      return 1; //true
    }
-   return 0;
+   return 0; //false
 }
 
 //Maze functions
+//Initializes a n_rows * n_cols maze. Each cell will be surrounded by walls around it
 int init_maze(Maze* maze, int n_rows, int n_cols)
 {
    if (maze == NULL)
@@ -144,13 +146,13 @@ int init_maze(Maze* maze, int n_rows, int n_cols)
       {
 	 if (i % 2 != 0 && k % 2 != 0)
 	 {
-            maze->arr[i][k] = 0;
-	    maze->unvisited[i][k] = 0;
+            maze->arr[i][k] = 0; // represents a cell
+	    maze->unvisited[i][k] = 0; // represents unvisited cell
 	 }
 	 else
 	 {
             maze->arr[i][k] = 1; // 1s represent walls 
-            maze->unvisited[i][k] = -1; // walls
+            maze->unvisited[i][k] = -1; // walls (i.e. unvisitable)
 	 }
       }
    }
@@ -162,11 +164,12 @@ int init_maze(Maze* maze, int n_rows, int n_cols)
 int generateMaze(Maze *maze, position start_pos)
 {
    position curr_pos;
-   if (maze->arr[start_pos.x][start_pos.y] != 0)
+   if (maze->arr[start_pos.x][start_pos.y] != 0) 
    {
       printf("Not valid starting position");
       return -1;
    }
+   //generating the maze. I used recursive backtracking. Implementation based on wikipedia's pseudocode description
    curr_pos = start_pos;
    stack *head = NULL;
    push(&head, curr_pos);
@@ -189,6 +192,7 @@ int generateMaze(Maze *maze, position start_pos)
    return 0;   
 }
 
+//formPath deletes a wall between two cells
 int formPath(Maze *maze, position curr_pos, position selected_neighbour)
 {
    int offset_x = curr_pos.x - selected_neighbour.x;
@@ -217,6 +221,7 @@ int formPath(Maze *maze, position curr_pos, position selected_neighbour)
    return 0;
 }
 
+//randomly returns an avaliable, unvisited neighbouring cell
 position getRandomUnvisitedNeighbour(Maze maze, position curr_pos)
 {
    position r_val;
@@ -266,6 +271,7 @@ position getRandomUnvisitedNeighbour(Maze maze, position curr_pos)
    exit(-1);
 }
 
+//checks if a position has neighbours avaliable
 int isUnvisitedNeighbours(Maze maze, position curr_pos)
 {
    int curr_x = curr_pos.x;
@@ -298,6 +304,7 @@ int isUnvisitedNeighbours(Maze maze, position curr_pos)
    return 0;
 }
 
+//prints the maze, * represents empty space, X represents a wall
 int printMaze(Maze maze)
 {
    for (int i = 0; i < maze.n_rows; i++)
