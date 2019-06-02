@@ -325,7 +325,7 @@ int printMaze(Maze maze)
       {
          if (maze.arr[i][k] == 0)
 	 {
-            printf("*");
+            printf("O");
 	 }
 	 else 
          {
