@@ -5,6 +5,7 @@ Currently, maze.h and maze.c both just contains structs and functions that lead 
 For the makefile, I took the one used in the CS50 SDL seminar: https://github.com/tlively/sdl_seminar
 
 Future plans are:
-2) Implement a solver for the maze (probably will be using DF traversal since I use a stack anyways)
 
-3) Create a simple maze game
+1) Implement a solver for the maze (probably will be using DF traversal since I use a stack anyways)
+
+2) Create a simple maze game
