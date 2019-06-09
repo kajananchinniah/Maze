@@ -1,4 +1,4 @@
-#ifndef MAZE_H_
+#ifndef MAZE_H
 #define MAZE_H
 
 typedef struct position
@@ -45,4 +45,14 @@ position getRandomUnvisitedNeighbour(Maze maze, position curr_pos);
 int isUnvisitedNeighbours(Maze maze, position curr_pos);
 int printMaze(Maze maze);
 
+//Maze getters and setters
+int **getMazeGrid(Maze maze);
+int getMazeNumberOfRows(Maze maze);
+int getMazeNumberOfCols(Maze maze);
+int getMazeWallValue();
+int getMazeEmptyValue();
+
+//Does initalize and generation of maze, and returns it
+Maze createRandomMaze(int n_rows, int n_cols);
+Maze createMaze(int n_rows, int n_cols, int start_x, int start_y);
 #endif

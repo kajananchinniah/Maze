@@ -55,7 +55,6 @@ int getNegativeXMovement(int x)
 //Stack functions
 int push(stack **x, position p)
 {
-   stack *tmp = NULL;
    if (x == NULL) 
    {
       printf("ERROR: Cannot allocate memory to stack");
@@ -335,4 +334,62 @@ int printMaze(Maze maze)
    printf("\n");
    }
    return 0;
+}
+
+int **getMazeGrid(Maze maze)
+{
+   return maze.arr;
+}
+
+int getMazeNumberOfRows(Maze maze)
+{
+   return maze.n_rows;
+}
+
+int getMazeNumberOfCols(Maze maze)
+{
+   return maze.n_cols;
+}
+
+int getMazeWallValue()
+{
+   return 1;   
+}
+
+int getMazeEmptyValue()
+{
+   return 0;
+}
+
+Maze createRandomMaze(int n_rows, int n_cols)
+{
+   Maze maze;
+   int rand_row = 0;
+   int rand_col = 0;
+
+   init_maze(&maze, n_rows, n_cols);
+
+   while (maze.arr[rand_row][rand_col] != 0)
+   {
+      rand_row = rand() % n_rows;
+      rand_col = rand() % n_cols;
+   }
+
+   position start_pos;
+   start_pos.x = rand_row;
+   start_pos.y = rand_col;
+
+   generateMaze(&maze, start_pos);
+   return maze;
+}
+
+Maze createMaze(int n_rows, int n_cols, int start_x, int start_y)
+{
+   Maze maze;
+   position start_pos;
+   start_pos.x = start_x;
+   start_pos.y = start_y;
+   init_maze(&maze, n_rows, n_cols);
+   generateMaze(&maze, start_pos);
+   return maze;
 }
